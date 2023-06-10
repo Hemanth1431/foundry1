@@ -6,9 +6,11 @@ contract SimpleStorage {
     address public owner;
 
     function getOwner() public view returns(uint256 value){
-        assembly {
-            let x := num.slot
-            value := sload(x)
-        }
+        // assembly {
+        //     let x := num.slot
+        //     value := sload(x)
+        // }
+
+        return num;
     }
 }
