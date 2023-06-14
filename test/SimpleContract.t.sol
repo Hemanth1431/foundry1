@@ -28,7 +28,7 @@ contract SimpleContractTest is Test {
         simpleContract.updateOwner(user);
 
         console.log("owner address: ", simpleContract.getOwner());
-        assertEq(simpleContract.getOwner(),user);   
+        assertEq(simpleContract.getOwner(),user);  
     } 
 
 
