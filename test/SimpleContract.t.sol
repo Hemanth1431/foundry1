@@ -19,17 +19,14 @@ contract SimpleContractTest is Test {
         console.log("owner address: ", simpleContract.getOwner());
     }
 
-    function testFail_Owner() external{
-        assertEq(simpleContract.getOwner(),user);
+    function testFail_Owner() public {
+        assertEq(simpleContract.getOwner(), user);
     }
 
-    function test_updateOwner() external {
+    function testOwnerUpdate() public {
         vm.prank(deployer);
         simpleContract.updateOwner(user);
-
-        console.log("owner address: ", simpleContract.getOwner());
-        assertEq(simpleContract.getOwner(),user);  
-    } 
-
-
+        console.log("address user", user);
+        assertEq(simpleContract.getOwner(), user);
+    }
 }

@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.17;
 
-contract Error{
+contract Error {
     error NotAuthorised();
 
-    function throwError()external{
+    function throwError() external pure {
         require(false, "not authorised");
     }
 
-    function throwCustomError()external{
+    function throwCustomError() external pure {
         revert NotAuthorised();
     }
 }

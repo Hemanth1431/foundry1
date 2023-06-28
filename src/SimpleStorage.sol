@@ -5,7 +5,7 @@ contract SimpleStorage {
     uint256 public num;
     address public owner;
 
-    function getOwner() public view returns(uint256 value){
+    function getOwner() public view returns (uint256 value) {
         // assembly {
         //     let x := num.slot
         //     value := sload(x)

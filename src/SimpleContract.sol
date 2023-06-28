@@ -5,20 +5,20 @@ contract SimpleContract {
     address private owner;
     uint256 private num;
 
-    constructor(){
+    constructor() {
         owner = msg.sender;
     }
 
     modifier onlyOwner() {
-        require(msg.sender==owner,'!owner');
+        require(msg.sender == owner, "!owner");
         _;
     }
 
-    function getOwner() external view returns(address) {
+    function getOwner() external view returns (address) {
         return owner;
     }
 
-    function updateOwner(address _newOwner) onlyOwner external {
+    function updateOwner(address _newOwner) external onlyOwner {
         owner = _newOwner;
     }
 
@@ -26,9 +26,7 @@ contract SimpleContract {
         num = _num;
     }
 
-    function getNum() external view returns(uint256){
+    function getNum() external view returns (uint256) {
         return num;
     }
-
-
 }

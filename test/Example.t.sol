@@ -7,28 +7,28 @@ import "../src/Example.sol";
 contract ExampleTest is Test {
     FreeApp public freeApp;
 
-    function setUp()public{
+    function setUp() public {
         freeApp = new FreeApp();
     }
 
-    function testInc()public{
+    function testInc() public {
         freeApp.inc();
         assertEq(freeApp.num(), 1);
     }
 
-    function testFailDec()public{
+    function testFailDec() public {
         freeApp.dec();
     }
 
-    function testDecUnderflow()public{
+    function testDecUnderflow() public {
         vm.expectRevert(stdError.arithmeticError);
         freeApp.dec();
     }
 
-    function testDec()public {
+    function testDec() public {
         freeApp.inc();
         freeApp.inc();
         freeApp.dec();
-        assertEq(freeApp.num(),1);
+        assertEq(freeApp.num(), 1);
     }
 }

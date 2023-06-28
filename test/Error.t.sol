@@ -4,32 +4,29 @@ pragma solidity ^0.8.13;
 import "forge-std/Test.sol";
 import "../src/Errors.sol";
 
-contract ErrorTest is Test{
+contract ErrorTest is Test {
     Error public err;
 
-    function setUp()external{
+    function setUp() external {
         err = new Error();
     }
 
-    function testFail()external{
+    function testFail() external view {
         err.throwError();
     }
 
-    function testRevert()external{
+    function testRevert() external {
         vm.expectRevert();
         err.throwError();
     }
 
-    function testRequireMessage()external{
+    function testRequireMessage() external {
         vm.expectRevert(bytes("not authorised"));
         err.throwError();
     }
 
-    function testCustomErrors()external{
+    function testCustomErrors() external {
         vm.expectRevert(Error.NotAuthorised.selector);
         err.throwCustomError();
     }
-
-
 }
-
